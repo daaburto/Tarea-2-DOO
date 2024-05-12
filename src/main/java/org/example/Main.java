@@ -11,6 +11,10 @@ public class Main {
         System.out.println(emp1.getId());
         System.out.println(emp1.getDepartamento().getNombre());
         System.out.println(dep1.ObtenerCantidadEmpleados());
+
+        dep1.invitar();
+
+        
     }
 }
 

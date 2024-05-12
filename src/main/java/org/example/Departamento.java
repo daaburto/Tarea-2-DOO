@@ -19,6 +19,10 @@ public class Departamento implements Invitable{
 
     public void invitar()
     {
-
+        for (int i = 0; i < empleados.size(); i++)
+        {
+            empleados.get(i).invitar();
+            System.out.println(empleados.get(i).getNombre() + " a sido invitado");
+        }
     }
 }

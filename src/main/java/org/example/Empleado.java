@@ -6,9 +6,12 @@ public class Empleado implements Invitable{
     private final String nombre;
     private final String correo;
 
+    public boolean invitado;
+
     private final Departamento departamento;
 
     public Empleado(String id, String ap, String nam, String corr, Departamento d){
+        this.invitado = false;
         this.id = id;
         this.apellidos = ap;
         this.nombre = nam;
@@ -38,6 +41,6 @@ public class Empleado implements Invitable{
     }
 
     public void invitar(){
-
+        this.invitado = true;
     }
 }
