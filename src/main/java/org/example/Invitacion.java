@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public class Invitacion {
     private Instant hora;
-    public Invitacion {
+    public Invitacion() {
 
     }
     public Instant getHora() {

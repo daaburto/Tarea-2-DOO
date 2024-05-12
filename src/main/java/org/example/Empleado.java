@@ -1,13 +1,20 @@
 package org.example;
 
-public class Empleado {
-    private String id;
-    private String apellidos;
-    private String nombre;
-    private String correo;
+public class Empleado implements Invitable{
+    private final String id;
+    private final String apellidos;
+    private final String nombre;
+    private final String correo;
 
-    public Empleado{
+    private final Departamento departamento;
 
+    public Empleado(String id, String ap, String nam, String corr, Departamento d){
+        this.id = id;
+        this.apellidos = ap;
+        this.nombre = nam;
+        this.correo = corr;
+        this.departamento = d;
+        departamento.empleados.add(this);
     }
 
     public String getId() {
@@ -24,5 +31,13 @@ public class Empleado {
 
     public String getCorreo() {
         return correo;
+    }
+
+    public Departamento getDepartamento(){
+        return departamento;
+    }
+
+    public void invitar(){
+
     }
 }

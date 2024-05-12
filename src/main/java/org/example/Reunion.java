@@ -12,11 +12,11 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
 
-    public Reunion{
+    public Reunion(){
 
     }
-    public List obtenerAsistencias(){
-
+    /*
+    public List obtenerAsistencias()
     }
     public List obtenerAusencias(){
 
@@ -29,6 +29,8 @@ public abstract class Reunion {
     public float calcularTiempoReal(){}
     public void iniciar(){}
     public void finalizar(){}
+
+     */
     public Date getFecha(){
         return fecha;
     }
