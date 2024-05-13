@@ -12,25 +12,28 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
 
-    public Reunion(){
+
+    public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista){
+        this.fecha = fecha;
+        this.horaPrevista = horaPrevista;
+        this.duracionPrevista = duracionPrevista;
+    }
+    public abstract List obtenerAsistencias();
+    public abstract List obtenerAusencias();
+    public abstract List obtenerRetrasos();
+    public abstract int obtenerTotalAsistencia();
+    public abstract float obtenerPorcentajeAsistencia();
+    public Duration calcularTiempoReal(){
+        return Duration.between(horaInicio,horaFin);
 
     }
-    /*
-    public List obtenerAsistencias()
+    public void iniciar(){
+        horaInicio = Instant.now();
     }
-    public List obtenerAusencias(){
-
+    public void finalizar(){
+        horaFin = Instant.now();
     }
-    public List obtenerRetrasos(){
 
-    }
-    public int obtenerTotalAsistencia(){}
-    public float obtenerPorcentajeAsistencia(){}
-    public float calcularTiempoReal(){}
-    public void iniciar(){}
-    public void finalizar(){}
-
-     */
     public Date getFecha(){
         return fecha;
     }
