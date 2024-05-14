@@ -1,4 +1,5 @@
 package org.example;
+import javax.swing.*;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -8,19 +9,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-        // Prueba Departamentos y Empleados
-        Departamento dep1 = new Departamento("Departamento1");
-        Empleado emp1 = new Empleado("7500","Sandoval Reyes", "Joaquin", "joaquinsandoval@gmail.com", dep1);
-        Empleado emp2 = new Empleado("7501","Aburto Rivera", "Daniel", "daaburto@gmail.com", dep1);
 
-        System.out.println(emp1.getCorreo());
-        System.out.println(emp1.getApellidos());
-        System.out.println(emp1.getNombre());
-        System.out.println(emp1.getId());
-        System.out.println(emp1.getDepartamento().getNombre());
-        System.out.println(dep1.ObtenerCantidadEmpleados());
-
-        dep1.invitar();
 
         // Prueba Fechas en reuniones
         Date fecha = new Date(124,4,10);
@@ -40,6 +29,21 @@ public class Main {
         System.out.println("tiempo real: "+ reunion.calcularTiempoReal().truncatedTo(ChronoUnit.SECONDS));
         System.out.println("sala: "+ reunion.getSala());
 
+        // Prueba Departamentos, Empleados e invitaciones
+        ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.parse("2024-05-10T14:00:00Z"), duracion, "314");
+        Invitacion inv1 = new Invitacion(reunion1);
+        Departamento dep1 = new Departamento("Departamento1");
+        Departamento dep2 = new Departamento("Departamento2");
+        Empleado emp1 = new Empleado("7500","Sandoval Reyes", "Joaquin", "joaquinsandoval@gmail.com", dep1);
+        Empleado emp2 = new Empleado("7501","Aburto Rivera", "Daniel", "daaburto@gmail.com", dep1);
+        Empleado emp3 = new Empleado("7501","Herrera Guzman", "Juan", "herrera@gmail.com", dep2);
+
+        dep1.invitar(inv1);
+
+        emp1.asistir(inv1);
+        emp2.asistir(inv1);
+
+        System.out.println(reunion1.obtenerAsistencias());
 
     }
 }

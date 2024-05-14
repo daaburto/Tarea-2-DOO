@@ -12,7 +12,7 @@ public class ReunionVirtual extends Reunion {
     }
 
     public List obtenerAsistencias(){
-        return null;
+        return listaAsistencia.getList();
     }
     public List obtenerAusencias(){
         return null;

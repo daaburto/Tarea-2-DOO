@@ -17,12 +17,12 @@ public class Departamento implements Invitable{
         return nombre;
     }
 
-    public void invitar()
+    public void invitar(Invitacion inv)
     {
         for (int i = 0; i < empleados.size(); i++)
         {
-            empleados.get(i).invitar();
-            System.out.println(empleados.get(i).getNombre() + " a sido invitado");
+            empleados.get(i).invitar(inv);
+            System.out.println(empleados.get(i).getNombre() + " ha sido invitado a " + inv.getReunion());
         }
     }
 }
