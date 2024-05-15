@@ -1,11 +1,10 @@
 package org.example;
 
-public class Notas {
+public class Notas{
     private String contenido;
-    public Notas(){
-
+    public Notas(String nota){
+        this.contenido = nota;
     }
-
     public String getContenido() {
         return contenido;
     }

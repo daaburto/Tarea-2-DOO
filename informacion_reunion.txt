@@ -1,0 +1,12 @@
+Sala: 314
+Fecha: Fri May 10 00:00:00 CLT 2024
+Hora prevista: 2024-05-10T14:00:00Z
+Duración prevista: PT2H30M
+Hora de inicio: 2024-05-15T22:01:09.495362400Z
+Hora de fin: 2024-05-15T22:01:11.509802400Z
+Notas:
+Cosa Importante
+Cosa MUY Importante
+[REDACTED]
+[Comment removed by moderator]
+

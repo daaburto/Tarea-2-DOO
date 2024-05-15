@@ -9,7 +9,6 @@ public class ReunionPresencial extends Reunion{
     public ReunionPresencial(Date fecha, Instant horaPrevista, Duration duracionPrevista,String sala) {
         super(fecha, horaPrevista, duracionPrevista);
         this.sala = sala;
-
     }
     public List obtenerAsistencias(){
         return listaAsistencia.getList();
@@ -29,7 +28,16 @@ public class ReunionPresencial extends Reunion{
 
         return (asistencia*100)/total;
     }
+    public void nuevaNota(Notas nota){
+        agregarNota(nota);
+    }
     public String getSala() {
         return sala;
+    }
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Sala: ").append(sala).append("\n");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

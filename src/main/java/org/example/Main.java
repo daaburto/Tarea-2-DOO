@@ -1,5 +1,9 @@
 package org.example;
+
 import javax.swing.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -11,7 +15,7 @@ public class Main {
 
 
 
-        // Prueba Fechas en reuniones
+        // Prueba Fechas y notas en reuniones, además de generar un txt
         Date fecha = new Date(124,4,10);
         Duration duracion = Duration.ofHours(2).plusMinutes(30);
         ReunionPresencial reunion = new ReunionPresencial(fecha, Instant.parse("2024-05-10T14:00:00Z"),duracion,"314");
@@ -20,14 +24,18 @@ public class Main {
             Thread.sleep(2000); // 1000 milisegundos = 1 segundo
         } catch (InterruptedException ignored) {
         }
+
+        reunion.nuevaNota(new Notas("Cosa Importante"));
+        reunion.nuevaNota(new Notas("Cosa MUY Importante"));
+        reunion.nuevaNota(new Notas("[REDACTED]"));
+        reunion.nuevaNota(new Notas("[Comment removed by moderator]"));
+
         reunion.finalizar();
-        System.out.println("fecha: "+ reunion.getFecha());
-        System.out.println("Hora prevista: "+ reunion.getHoraPrevista());
-        System.out.println("duracion prevista: "+ reunion.getDuracionPrevista());
-        System.out.println("hora inicio: "+ reunion.getHoraInicio().truncatedTo(ChronoUnit.SECONDS));
-        System.out.println("hora fin: "+ reunion.getHoraFin().truncatedTo(ChronoUnit.SECONDS));
-        System.out.println("tiempo real: "+ reunion.calcularTiempoReal().truncatedTo(ChronoUnit.SECONDS));
-        System.out.println("sala: "+ reunion.getSala());
+        try (PrintWriter writer = new PrintWriter(new FileWriter("informacion_reunion.txt"))){
+            writer.println(reunion);
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al generar el archivo: " + e.getMessage());
+        }
 
         // Prueba Departamentos, Empleados e invitaciones
         ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)), duracion, "314");

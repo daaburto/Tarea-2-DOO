@@ -29,9 +29,16 @@ public class ReunionVirtual extends Reunion {
 
         return (asistencia*100)/total;
     }
+    public void nuevaNota(Notas nota){
+        agregarNota(nota);
+    }
     public String getEnlace() {
         return enlace;
     }
-
-
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Sala: ").append(enlace).append("\n");
+        sb.append(super.toString());
+        return sb.toString();
+    }
 }
