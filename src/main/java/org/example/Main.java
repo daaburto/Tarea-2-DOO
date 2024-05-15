@@ -45,6 +45,8 @@ public class Main {
 
         System.out.println(reunion1.obtenerAsistencias());
 
+        System.out.println(reunion1.obtenerRetrasos());
+
     }
 }
 

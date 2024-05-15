@@ -10,7 +10,6 @@ public class Retraso extends Asistencia {
     }
 
     public Instant getHora() {
-
         return hora;
     }
 }

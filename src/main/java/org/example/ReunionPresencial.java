@@ -18,7 +18,7 @@ public class ReunionPresencial extends Reunion{
         return null;
     }
     public List obtenerRetrasos(){
-        return null;
+        return listaRetrasos.getList();
     }
     public int obtenerTotalAsistencia(){
         return 0;

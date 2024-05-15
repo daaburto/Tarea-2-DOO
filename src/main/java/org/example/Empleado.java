@@ -41,13 +41,15 @@ public class Empleado implements Invitable{
         inv.getReunion().addInvitado(this);
     }
 
-    public void asistir(Invitacion inv){
-        if (inv.getReunion().listaInvitados.contains(this))
-        {
-            inv.getReunion().listaAsistencia.addList(this);
-        }
-        else
-        {
+    public void asistir(Invitacion inv) {
+        if (inv.getReunion().listaInvitados.contains(this)) {
+            if (Instant.now().isBefore(inv.getReunion().getHoraPrevista())) {
+                inv.getReunion().listaAsistencia.addList(this);
+            }else {
+                inv.getReunion().listaAsistencia.addList(this);
+                inv.getReunion().listaRetrasos.addList(this);
+            }
+        } else {
             System.out.println(this.getNombre() + " no está invitado a la reunión");
         }
     }

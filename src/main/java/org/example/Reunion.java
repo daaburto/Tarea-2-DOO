@@ -24,6 +24,7 @@ public abstract class Reunion {
         this.duracionPrevista = duracionPrevista;
         this.listaInvitados = new ArrayList<>();
         this.listaAsistencia = new Asistencia();
+        this.listaRetrasos = new Retraso();
     }
     public abstract List obtenerAsistencias();
     public abstract List obtenerAusencias();
@@ -39,6 +40,7 @@ public abstract class Reunion {
     }
     public void finalizar(){
         horaFin = Instant.now();
+        
     }
 
     public Date getFecha(){
