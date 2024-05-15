@@ -15,16 +15,19 @@ public class ReunionPresencial extends Reunion{
         return listaAsistencia.getList();
     }
     public List obtenerAusencias(){
-        return null;
+        return listaAusencias;
     }
     public List obtenerRetrasos(){
         return listaRetrasos.getList();
     }
     public int obtenerTotalAsistencia(){
-        return 0;
+        return listaAsistencia.getList().size();
     }
     public float obtenerPorcentajeAsistencia(){
-        return 0;
+        float total = listaInvitados.size();
+        float asistencia = this.obtenerTotalAsistencia();
+
+        return (asistencia*100)/total;
     }
     public String getSala() {
         return sala;

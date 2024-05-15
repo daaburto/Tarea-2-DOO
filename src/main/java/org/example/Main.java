@@ -30,22 +30,29 @@ public class Main {
         System.out.println("sala: "+ reunion.getSala());
 
         // Prueba Departamentos, Empleados e invitaciones
-        ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.parse("2024-05-10T14:00:00Z"), duracion, "314");
+        ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)), duracion, "314");
         Invitacion inv1 = new Invitacion(reunion1);
         Departamento dep1 = new Departamento("Departamento1");
         Departamento dep2 = new Departamento("Departamento2");
         Empleado emp1 = new Empleado("7500","Sandoval Reyes", "Joaquin", "joaquinsandoval@gmail.com", dep1);
         Empleado emp2 = new Empleado("7501","Aburto Rivera", "Daniel", "daaburto@gmail.com", dep1);
-        Empleado emp3 = new Empleado("7501","Herrera Guzman", "Juan", "herrera@gmail.com", dep2);
+        Empleado emp3 = new Empleado("7501","Herrera Guzman", "Juan", "herrera@gmail.com", dep1);
 
         dep1.invitar(inv1);
-
+        reunion1.iniciar();
         emp1.asistir(inv1);
-        emp2.asistir(inv1);
+        try{
+            Thread.sleep(3000);
+        }catch (InterruptedException ignored){
+            emp2.asistir(inv1);
+        }
+        reunion1.finalizar();
+        emp3.asistir(inv1);
 
-        System.out.println(reunion1.obtenerAsistencias());
 
-        System.out.println(reunion1.obtenerRetrasos());
+        System.out.println("Lista asistencias --> " + reunion1.obtenerAsistencias());
+        System.out.println("Lista atrasos --> " + reunion1.obtenerRetrasos());
+        System.out.println("Lista ausencias --> " + reunion1.obtenerAusencias());
 
     }
 }

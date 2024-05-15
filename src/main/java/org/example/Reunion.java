@@ -16,6 +16,7 @@ public abstract class Reunion {
     public ArrayList<Empleado> listaInvitados;
     public Asistencia listaAsistencia;
     public Retraso listaRetrasos;
+    public ArrayList<Empleado> listaAusencias;
 
 
     public Reunion(Date fecha, Instant horaPrevista, Duration duracionPrevista){
@@ -25,6 +26,7 @@ public abstract class Reunion {
         this.listaInvitados = new ArrayList<>();
         this.listaAsistencia = new Asistencia();
         this.listaRetrasos = new Retraso();
+        this.listaAusencias = new ArrayList<>();
     }
     public abstract List obtenerAsistencias();
     public abstract List obtenerAusencias();
@@ -40,7 +42,15 @@ public abstract class Reunion {
     }
     public void finalizar(){
         horaFin = Instant.now();
-        
+        // Comparar listaInvitados con listaAsistencia
+        for (int i = 0; i < listaInvitados.size(); i ++){
+            if (!listaAsistencia.getList().contains(listaInvitados.get(i))){
+                listaAusencias.add(listaInvitados.get(i));
+                System.out.println(listaInvitados.get(i).getNombre() + " Faltó a la reunión");
+            }else {
+                System.out.println(listaInvitados.get(i).getNombre() + " No faltó a la reunión");
+            }
+        }
     }
 
     public Date getFecha(){
