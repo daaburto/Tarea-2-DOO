@@ -38,7 +38,7 @@ public class Main {
          */
 
         // Prueba Departamentos, Empleados e invitaciones
-        ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)), duracion,tipoReunion.TECNICA, "314");
+        ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofMillis(100)), duracion,tipoReunion.TECNICA, "314");
         Invitacion inv1 = new Invitacion(reunion1);
         Departamento dep1 = new Departamento("Departamento1");
         Departamento dep2 = new Departamento("Departamento2");
@@ -49,6 +49,9 @@ public class Main {
         dep1.invitar(inv1);
         reunion1.iniciar();
         emp1.asistir(inv1);
+        reunion1.nuevaNota(new Notas("Cosa MUY Importante"));
+        reunion1.nuevaNota(new Notas("[REDACTED]"));
+        reunion1.nuevaNota(new Notas("[Comment removed by moderator]"));
         try{
             Thread.sleep(3000);
         }catch (InterruptedException ignored){
@@ -57,7 +60,16 @@ public class Main {
         reunion1.finalizar();
         emp3.asistir(inv1);
 
-        reunion1.informe();
+        System.out.println(reunion1.calcularTiempoReal());
+        System.out.println("Lista asistencias --> " + reunion1.obtenerAsistencias());
+        System.out.println("Lista atrasos --> " + reunion1.obtenerRetrasos());
+        System.out.println("Lista ausencias --> " + reunion1.obtenerAusencias());
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter("informacion_reunion2.txt"))){
+            writer.println(reunion1);
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al generar el archivo: " + e.getMessage());
+        }
     }
 }
 

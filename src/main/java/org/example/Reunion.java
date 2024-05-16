@@ -117,7 +117,7 @@ public abstract class Reunion {
      * @return Duración de la reunión
      */
     public Duration calcularTiempoReal(){
-        return Duration.between(horaInicio,horaFin);
+            return Duration.between(horaInicio, horaFin);
     }
 
     /**
@@ -134,7 +134,7 @@ public abstract class Reunion {
      */
     public void finalizar(){
         horaFin = Instant.now();
-        for (int i = 0; i < listaInvitados.size(); i ++){
+        for (int i = 0; i < listaInvitados.size(); i++){
             if (!listaAsistencia.getList().contains(listaInvitados.get(i))){
                 listaAusencias.add(listaInvitados.get(i));
             }
@@ -217,6 +217,33 @@ public abstract class Reunion {
         sb.append("Duración prevista: ").append(duracionPrevista).append("\n");
         sb.append("Hora de inicio: ").append(horaInicio).append("\n");
         sb.append("Hora de fin: ").append(horaFin).append("\n");
+        sb.append("Lista de asistencia: ");
+        for (int i = 0; i < listaAsistencia.listaEmpleados.size(); i++) {
+            Empleado empleado = listaAsistencia.listaEmpleados.get(i);
+            sb.append(empleado.getCorreo());
+            if (i < listaAsistencia.listaEmpleados.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("\n");
+        sb.append("Lista de retraso: ");
+        for (int i = 0; i < listaRetrasos.listaEmpleados.size(); i++) {
+            Empleado empleado = listaRetrasos.listaEmpleados.get(i);
+            sb.append(empleado.getCorreo());
+            if (i < listaRetrasos.listaEmpleados.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("\n");
+        sb.append("Lista de ausencias: ");
+        for (int i = 0; i < listaAusencias.size(); i++) {
+            Empleado empleado = listaAusencias.get(i);
+            sb.append(empleado.getCorreo());
+            if (i < listaAusencias.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("\n");
         sb.append("Notas:\n");
         for (Notas nota : notas) {
             sb.append(nota.getContenido()).append("\n");
