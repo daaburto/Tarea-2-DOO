@@ -38,19 +38,23 @@ public class Empleado implements Invitable{
     }
 
     public void invitar(Invitacion inv){
-        inv.getReunion().addInvitado(this);
+        if (!inv.getReunion().listaInvitados.contains(this)){
+            inv.getReunion().addInvitado(this);
+        }
     }
 
     public void asistir(Invitacion inv) {
-        if (inv.getReunion().listaInvitados.contains(this)) {
-            if (Instant.now().isBefore(inv.getReunion().getHoraPrevista())) {
-                inv.getReunion().listaAsistencia.addList(this);
-            }else {
-                inv.getReunion().listaAsistencia.addList(this);
-                inv.getReunion().listaRetrasos.addList(this);
+        if (inv.getReunion().getHoraFin() == null) {
+            if (inv.getReunion().listaInvitados.contains(this)) {
+                if (Instant.now().isBefore(inv.getReunion().getHoraPrevista())) {
+                    inv.getReunion().listaAsistencia.addList(this);
+
+                } else {
+                    inv.getReunion().listaAsistencia.addList(this);
+                    inv.getReunion().listaRetrasos.addList(this);
+
+                }
             }
-        } else {
-            System.out.println(this.getNombre() + " no está invitado a la reunión");
         }
     }
 }

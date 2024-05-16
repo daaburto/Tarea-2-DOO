@@ -1,13 +1,9 @@
-Sala: 314
+Sala: 123
 Tipo de la reunión: TECNICA
-Fecha: Fri May 10 00:00:00 CLT 2024
-Hora prevista: 2024-05-16T00:50:59.643458900Z
-Duración prevista: PT2H30M
-Hora de inicio: 2024-05-16T00:50:58.644465600Z
-Hora de fin: 2024-05-16T00:51:00.647998600Z
+Fecha: Sun Jun 15 00:00:00 CLT 3924
+Hora prevista: 2024-05-16T04:26:03.659371100Z
+Duración prevista: PT1H
+Hora de inicio: null
+Hora de fin: null
 Notas:
-Cosa Importante
-Cosa MUY Importante
-[REDACTED]
-[Comment removed by moderator]
 

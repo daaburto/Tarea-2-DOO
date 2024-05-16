@@ -1,5 +1,8 @@
 package org.example;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.time.Duration;
 import java.time.Instant;
@@ -134,9 +137,6 @@ public abstract class Reunion {
         for (int i = 0; i < listaInvitados.size(); i ++){
             if (!listaAsistencia.getList().contains(listaInvitados.get(i))){
                 listaAusencias.add(listaInvitados.get(i));
-                System.out.println(listaInvitados.get(i).getNombre() + " Faltó a la reunión");
-            }else {
-                System.out.println(listaInvitados.get(i).getNombre() + " No faltó a la reunión");
             }
         }
     }
@@ -190,6 +190,19 @@ public abstract class Reunion {
     public List<Notas> getNotas(){
         return notas;
     }
+
+    /**
+     * Genera un informe de la reunión
+     */
+    public void informe(){
+        try (PrintWriter writer = new PrintWriter(new FileWriter("informacion_reunion.txt"))){
+            writer.println(this);
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al generar el archivo: " + e.getMessage());
+        }
+    }
+
+
 
     /**
      * Representación en forma de string de la reunión.

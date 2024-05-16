@@ -16,8 +16,10 @@ public class Main {
 
 
         // Prueba Fechas y notas en reuniones, además de generar un txt
+
         Date fecha = new Date(124,4,10);
         Duration duracion = Duration.ofHours(2).plusMinutes(30);
+        /*
         ReunionPresencial reunion = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)),duracion,tipoReunion.TECNICA,"314");
         reunion.iniciar();
         try {
@@ -31,11 +33,9 @@ public class Main {
         reunion.nuevaNota(new Notas("[Comment removed by moderator]"));
 
         reunion.finalizar();
-        try (PrintWriter writer = new PrintWriter(new FileWriter("informacion_reunion.txt"))){
-            writer.println(reunion);
-        } catch (IOException e) {
-            System.out.println("Ocurrió un error al generar el archivo: " + e.getMessage());
-        }
+
+
+         */
 
         // Prueba Departamentos, Empleados e invitaciones
         ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)), duracion,tipoReunion.TECNICA, "314");
@@ -52,16 +52,12 @@ public class Main {
         try{
             Thread.sleep(3000);
         }catch (InterruptedException ignored){
-            emp2.asistir(inv1);
         }
+        emp2.asistir(inv1);
         reunion1.finalizar();
         emp3.asistir(inv1);
 
-
-        System.out.println("Lista asistencias --> " + reunion1.obtenerAsistencias());
-        System.out.println("Lista atrasos --> " + reunion1.obtenerRetrasos());
-        System.out.println("Lista ausencias --> " + reunion1.obtenerAusencias());
-
+        reunion1.informe();
     }
 }
 
