@@ -18,6 +18,7 @@ public class AusenciaTest {
         Departamento dep2 = new Departamento("Departamento2");
         Empleado emp1 = new Empleado("7500","Sandoval Reyes", "Joaquin", "joaquinsandoval@gmail.com", dep1);
         Empleado emp2 = new Empleado("7501","Aburto Rivera", "Daniel", "daaburto@gmail.com", dep1);
+        Empleado emp3 = new Empleado("7501","Herrera Guzman", "Juan", "herrera@gmail.com", dep1);
 
         dep1.invitar(inv1);
         reunion1.iniciar();
@@ -28,10 +29,12 @@ public class AusenciaTest {
         }
         emp2.asistir(inv1);
         reunion1.finalizar();
+        emp3.asistir(inv1);
 
         ArrayList<Empleado> expected= new ArrayList<>();
-        expected.add(emp2);
+        expected.add(emp3);
 
-        Assertions.assertEquals(expected, reunion1.listaRetrasos.getList());
+        Assertions.assertEquals(expected, reunion1.listaAusencias);
+
     }
 }

@@ -77,11 +77,13 @@ public class Empleado implements Invitable{
     }
 
     /**
-     * Registra la asistencia del empleado a una reunión.
+     * Registra la asistencia del empleado y la hora a una reunión.
      * @param inv La invitación a la reunión.
      */
     public void asistir(Invitacion inv) {
         if (inv.getReunion().getHoraFin() == null) {
+            inv.getReunion().listaRetrasos.horaRetrasos.add(Instant.now());
+
             if (inv.getReunion().listaInvitados.contains(this)) {
                 if (Instant.now().isBefore(inv.getReunion().getHoraPrevista())) {
                     inv.getReunion().listaAsistencia.addList(this);
