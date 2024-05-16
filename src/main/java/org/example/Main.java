@@ -18,7 +18,7 @@ public class Main {
         // Prueba Fechas y notas en reuniones, además de generar un txt
         Date fecha = new Date(124,4,10);
         Duration duracion = Duration.ofHours(2).plusMinutes(30);
-        ReunionPresencial reunion = new ReunionPresencial(fecha, Instant.parse("2024-05-10T14:00:00Z"),duracion,"314");
+        ReunionPresencial reunion = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)),duracion,tipoReunion.TECNICA,"314");
         reunion.iniciar();
         try {
             Thread.sleep(2000); // 1000 milisegundos = 1 segundo
@@ -38,7 +38,7 @@ public class Main {
         }
 
         // Prueba Departamentos, Empleados e invitaciones
-        ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)), duracion, "314");
+        ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofSeconds(1)), duracion,tipoReunion.TECNICA, "314");
         Invitacion inv1 = new Invitacion(reunion1);
         Departamento dep1 = new Departamento("Departamento1");
         Departamento dep2 = new Departamento("Departamento2");
