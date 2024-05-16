@@ -1,12 +1,17 @@
-Sala: 123
+Sala: 314
 Tipo de la reunión: TECNICA
 Fecha: Fri May 10 00:00:00 CLT 2024
-Hora prevista: 2024-05-16T03:58:48.804894600Z
+Hora prevista: 2024-05-16T05:10:53.410451600Z
 Duración prevista: PT2H30M
-Hora de inicio: 2024-05-16T03:58:47.805878900Z
-Hora de fin: 2024-05-16T03:58:49.807459300Z
-Lista de asistencia: 
-Lista de retraso: 
-Lista de ausencias:
+Hora de inicio: 2024-05-16T05:10:53.344528900Z
+Hora de fin: 2024-05-16T05:10:56.359349Z
+Cantidad de participantes: 2
+Porcentaje de asistencia: 66.666664%
+Lista de asistencia: joaquinsandoval@gmail.com, daaburto@gmail.com
+Lista de retraso: daaburto@gmail.com
+Lista de ausencias: herrera@gmail.com
 Notas:
+Cosa MUY Importante
+[REDACTED]
+[Comment removed by moderator]
 

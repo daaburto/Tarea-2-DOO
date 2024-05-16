@@ -117,7 +117,7 @@ public abstract class Reunion {
      * @return Duración de la reunión
      */
     public Duration calcularTiempoReal(){
-            return Duration.between(horaInicio, horaFin);
+        return Duration.between(horaInicio, horaFin);
     }
 
     /**
@@ -217,6 +217,9 @@ public abstract class Reunion {
         sb.append("Duración prevista: ").append(duracionPrevista).append("\n");
         sb.append("Hora de inicio: ").append(horaInicio).append("\n");
         sb.append("Hora de fin: ").append(horaFin).append("\n");
+        sb.append("Hora real: ").append(calcularTiempoReal()).append("\n");
+        sb.append("Cantidad de participantes: ").append(obtenerTotalAsistencia()).append("\n");
+        sb.append("Porcentaje de asistencia: ").append(obtenerPorcentajeAsistencia()).append("%\n");
         sb.append("Lista de asistencia: ");
         for (int i = 0; i < listaAsistencia.listaEmpleados.size(); i++) {
             Empleado empleado = listaAsistencia.listaEmpleados.get(i);

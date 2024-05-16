@@ -35,7 +35,7 @@ public class Main {
         reunion.finalizar();
 
 
-         */
+
 
         // Prueba Departamentos, Empleados e invitaciones
         ReunionPresencial reunion1 = new ReunionPresencial(fecha, Instant.now().plus(Duration.ofMillis(100)), duracion,tipoReunion.TECNICA, "314");
@@ -69,7 +69,7 @@ public class Main {
             writer.println(reunion1);
         } catch (IOException e) {
             System.out.println("Ocurrió un error al generar el archivo: " + e.getMessage());
-        }
+        }*/
     }
 }
 
